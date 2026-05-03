@@ -36,7 +36,7 @@
   },
   "notes": [
     "Start Espanso from the Start Menu shortcut: Espanso Portable",
-    "Then you can allow Espanso launched automatically when you start your PC (which can be disabled by `espanso.exe service unregister`",
+    "Then you can allow Espanso launched automatically when you start your PC (which can be disabled by `espanso service unregister`",
     "Portable configuration is persisted under: ~/scoop/persist/espanso-portable/.espanso"
   ]
 }
