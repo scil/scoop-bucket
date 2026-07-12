@@ -1,0 +1,30 @@
+{
+  "version": "0.10.0",
+  "description": "Desktop app for managing AI coding agent skills across multiple platforms",
+  "homepage": "https://github.com/iamzhihuix/skills-manage",
+  "license": "Apache-2.0",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/iamzhihuix/skills-manage/releases/download/v0.10.0/skills-manage_0.10.0_windows_x64.zip",
+      "hash": "face331753eba45e0a17f806cbfd782343c9cade39f3c65d66b0fc8460ac0383"
+    }
+  },
+  "bin": "skills-manage.exe",
+  "shortcuts": [
+    [
+      "skills-manage.exe",
+      "Skills Manage"
+    ]
+  ],
+  "checkver": {
+    "github": "https://github.com/iamzhihuix/skills-manage"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/iamzhihuix/skills-manage/releases/download/v$version/skills-manage_$version_windows_x64.zip"
+      }
+    }
+  },
+  "notes": "Application data is stored in ~/.skillsmanage."
+}
