@@ -20,6 +20,7 @@
       "Symlink Center"
     ]
   ],
+  "persist": "data",
   "checkver": {
     "github": "https://github.com/scil/symlink-center"
   },
