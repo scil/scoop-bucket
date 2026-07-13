@@ -1,0 +1,34 @@
+{
+  "version": "0.1.1",
+  "description": "Windows desktop app for managing symbolic links and moving application data off the system drive",
+  "homepage": "https://github.com/scil/symlink-center",
+  "license": "Unknown",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/scil/symlink-center/releases/download/v0.1.1/_0.1.1_x64-setup.exe#/dl.7z",
+      "hash": "19474348c05fff5f44607ff20f4b34f22f6f6d61cd569608054adb89c7664a57"
+    }
+  },
+  "pre_install": [
+    "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse -Force",
+    "Rename-Item \"$dir\\symlink_management_and_config_decoupling.exe\" \"symlink-center.exe\""
+  ],
+  "bin": "symlink-center.exe",
+  "shortcuts": [
+    [
+      "symlink-center.exe",
+      "Symlink Center"
+    ]
+  ],
+  "checkver": {
+    "github": "https://github.com/scil/symlink-center"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/scil/symlink-center/releases/download/v$version/_$version_x64-setup.exe#/dl.7z"
+      }
+    }
+  },
+  "notes": "Creating symbolic links may require Developer Mode or administrator privileges."
+}
