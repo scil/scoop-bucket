@@ -1,12 +1,12 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Windows desktop app for managing symbolic links and moving application data off the system drive",
   "homepage": "https://github.com/scil/symlink-center",
   "license": "Unknown",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/scil/symlink-center/releases/download/v0.1.1/_0.1.1_x64-setup.exe#/dl.7z",
-      "hash": "19474348c05fff5f44607ff20f4b34f22f6f6d61cd569608054adb89c7664a57"
+      "url": "https://github.com/scil/symlink-center/releases/download/v0.1.2/_0.1.2_x64-setup.exe#/dl.7z",
+      "hash": "7fada87d7c735c2d7a311318d17d61a5aa0f7fd90c7ae434e0735919b4695e0d"
     }
   },
   "pre_install": [
