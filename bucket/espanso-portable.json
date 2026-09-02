@@ -1,12 +1,12 @@
 {
-    "version": "2.4.0",
+    "version": "2.4.1",
     "description": "Privacy-first cross-platform text expander, portable build",
     "homepage": "https://espanso.org",
     "license": "GPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/espanso/espanso/releases/download/v2.4.0/Espanso-Win-Portable-x86_64.zip",
-            "hash": "fb45d1be883b5b3bc68446b5e7ccfd46b1caea77be41d28f05e589f8c12edbee"
+            "url": "https://github.com/espanso/espanso/releases/download/v2.4.1/Espanso-Win-Portable-x86_64.zip",
+            "hash": "ecc6924e2ffbe3663b9a9cedb49a4b90d221a4c23e7d462be32be8efc8e2a8a8"
         }
     },
     "extract_dir": "espanso-portable",
