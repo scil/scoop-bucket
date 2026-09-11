@@ -1,0 +1,58 @@
+{
+    "version": "1.15.4",
+    "description": "Standalone CLIProxyAPI (CPA) usage tracker with SQLite persistence and built-in dashboard",
+    "homepage": "https://github.com/Willxup/cpa-usage-keeper",
+    "license": "MIT",
+    "notes": [
+        "cpa-usage-keeper shim uses \"$persist_dir\\.env\" as the env file; SQLite data, logs and backups live in \"$persist_dir\\data\".",
+        "Before first run, edit \"$persist_dir\\.env\": set CPA_BASE_URL, CPA_MANAGEMENT_KEY and LOGIN_PASSWORD (the service refuses to start while LOGIN_PASSWORD is empty).",
+        "CLIProxyAPI side: set remote-management.secret-key and usage-statistics-enabled: true in its config.yaml.",
+        "Dashboard: http://127.0.0.1:8080 (APP_PORT)."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Willxup/cpa-usage-keeper/releases/download/v1.15.4/cpa-usage-keeper_v1.15.4_windows_amd64.zip",
+            "hash": "03613b29af229ba78bb119bf12d25b7dcfa9dcd8f830726174e5e02286b38b36",
+            "extract_dir": "cpa-usage-keeper_v1.15.4_windows_amd64"
+        },
+        "arm64": {
+            "url": "https://github.com/Willxup/cpa-usage-keeper/releases/download/v1.15.4/cpa-usage-keeper_v1.15.4_windows_arm64.zip",
+            "hash": "c196cba20aa0171d603a9ebe02b57ddd874ce96762726bd71827fc37b2f4e94f",
+            "extract_dir": "cpa-usage-keeper_v1.15.4_windows_arm64"
+        }
+    },
+    "pre_install": [
+        "if (-not (Test-Path -Path \"$persist_dir\\.env\")) {",
+        "    Copy-Item -Path \"$dir\\.env.example\" -Destination \"$dir\\.env\"",
+        "}"
+    ],
+    "bin": [
+        [
+            "cpa-usage-keeper.exe",
+            "cpa-usage-keeper",
+            "-env \"$persist_dir\\.env\""
+        ]
+    ],
+    "persist": [
+        ".env",
+        "data"
+    ],
+    "checkver": {
+        "github": "https://github.com/Willxup/cpa-usage-keeper"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Willxup/cpa-usage-keeper/releases/download/v$version/cpa-usage-keeper_v$version_windows_amd64.zip",
+                "extract_dir": "cpa-usage-keeper_v$version_windows_amd64"
+            },
+            "arm64": {
+                "url": "https://github.com/Willxup/cpa-usage-keeper/releases/download/v$version/cpa-usage-keeper_v$version_windows_arm64.zip",
+                "extract_dir": "cpa-usage-keeper_v$version_windows_arm64"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}
