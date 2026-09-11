@@ -1,0 +1,31 @@
+{
+    "version": "4.7.0",
+    "description": "Antigravity account manager & switcher: one-click seamless account switching for Antigravity Tools (Tauri v2 + React)",
+    "homepage": "https://github.com/lbjlaq/Antigravity-Manager",
+    "license": "CC-BY-NC-SA-4.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/lbjlaq/Antigravity-Manager/releases/download/v4.7.0/Antigravity.Tools_4.7.0_x64-setup.exe#/dl.7z",
+            "hash": "cb564db07c5e1edb24933a0e2501ddbfdab0d90485194efaf6f56293d52eaa3f"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse -Force -ErrorAction SilentlyContinue",
+    "bin": "antigravity-tools.exe",
+    "shortcuts": [
+        [
+            "antigravity-tools.exe",
+            "Antigravity Tools"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/lbjlaq/Antigravity-Manager"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/lbjlaq/Antigravity-Manager/releases/download/v$version/Antigravity.Tools_${version}_x64-setup.exe#/dl.7z"
+            }
+        }
+    },
+    "notes": "Antigravity Tools stores its application data under %APPDATA%\\com.lbjlaq.antigravity-tools."
+}
