@@ -3,8 +3,8 @@ name: Excavator
 on:
   workflow_dispatch:
   schedule:
-    # Check manifests for updates every four hours.
-    - cron: "20 */4 * * *"
+    # Check manifests for updates every twelve hours.
+    - cron: "20 */12 * * *"
 
 permissions:
   contents: write
