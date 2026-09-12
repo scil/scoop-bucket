@@ -1,0 +1,58 @@
+{
+    "version": "1.5.0",
+    "description": "Free, open-source Windows desktop organizer with native-feeling WinUI 3 widgets",
+    "homepage": "https://github.com/Tianyu199509/DeskBox",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Tianyu199509/DeskBox/releases/download/v1.5.0/DeskBox_Setup_1.5.0_x64.exe",
+            "hash": "0627a25b7a9fcd9a94d976cd957bfe992100b73fb76625be59862b595838b4fe"
+        },
+        "arm64": {
+            "url": "https://github.com/Tianyu199509/DeskBox/releases/download/v1.5.0/DeskBox_Setup_1.5.0_arm64.exe",
+            "hash": "e41c2d770b438599f1abb59a0b5a718dfacc25094ae2a1458110eca62a9bf307"
+        }
+    },
+    "installer": {
+        "script": [
+            "$setup = Get-ChildItem \"$dir\\DeskBox_Setup_*.exe\" | Select-Object -First 1",
+            "Start-Process $setup.FullName -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/NOICONS', \"/DIR=`\"$dir`\"\") -Wait -Verb RunAs",
+            "Remove-Item $setup.FullName -ErrorAction SilentlyContinue"
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "$unins = Get-ChildItem \"$dir\\unins*.exe\" | Select-Object -First 1",
+            "if ($unins) { Start-Process $unins.FullName -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART') -Wait -Verb RunAs }"
+        ]
+    },
+    "shortcuts": [
+        [
+            "DeskBox.exe",
+            "DeskBox"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/Tianyu199509/DeskBox"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Tianyu199509/DeskBox/releases/download/v$version/DeskBox_Setup_${version}_x64.exe",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            },
+            "arm64": {
+                "url": "https://github.com/Tianyu199509/DeskBox/releases/download/v$version/DeskBox_Setup_${version}_arm64.exe",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            }
+        }
+    },
+    "notes": [
+        "DeskBox is a WinUI 3 app and requires .NET 10 Runtime and Windows App Runtime 2.4.",
+        "The Inno Setup installer runs silently with admin rights (UAC prompt) and downloads any missing runtime dependencies."
+    ]
+}
