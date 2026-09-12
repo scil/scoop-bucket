@@ -1,0 +1,5 @@
+# Track project skills despite global .claude ignore
+!.claude/
+.claude/*
+!.claude/skills/
+
