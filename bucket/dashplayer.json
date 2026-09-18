@@ -1,12 +1,12 @@
 {
-    "version": "6.12.1",
+    "version": "6.12.6",
     "description": "Video player designed for learning English with bilingual subtitles, dictionary lookup, and AI subtitle tools",
     "homepage": "https://github.com/solidSpoon/DashPlayer",
     "license": "AGPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/solidSpoon/DashPlayer/releases/download/v6.12.1/DashPlayer-6.12.1-full.nupkg#/dl.7z",
-            "hash": "3362fc1b08e88aaa3a5baab840528a48d908cb2c660bec9a12354c9cf16d5c6d"
+            "url": "https://github.com/solidSpoon/DashPlayer/releases/download/v6.12.6/DashPlayer-6.12.6-full.nupkg#/dl.7z",
+            "hash": "d5760ae8f4c5715cd1de6b26c259078c486d3314388e88199efbada442698503"
         }
     },
     "extract_dir": "lib\\net45",
