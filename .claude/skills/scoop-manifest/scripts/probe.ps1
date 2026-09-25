@@ -34,7 +34,11 @@ $rel.assets | Where-Object name -match '\.(sha256|sha256sum|txt)$' | ForEach-Obj
 
 '== INSTALLER .iss (if any) =='
 try {
+    # gh prints the 404 error body to stdout when installer/ is missing; drop it and anything that isn't an .iss path
     $issFiles = @(gh api "repos/$Repo/contents/installer" --jq '.[]|select(.name|endswith(".iss"))|.path' 2>$null)
+    if ($LASTEXITCODE -ne 0) { $issFiles = @() }
+    $issFiles = @($issFiles | Where-Object { $_ -match '\.iss$' })
+    $global:LASTEXITCODE = 0
     if ($issFiles) {
         foreach ($iss in $issFiles) {
             "  [$iss]"
@@ -45,10 +49,14 @@ try {
 } catch { '  none' }
 
 '== PRIMARY ASSET INSPECTION =='
-$pick = $rel.assets | Where-Object { $_.name -notmatch '\.(sha256|txt|sig|asc|yml|blockmap)$' }
-if ($Asset) { $pick = $pick | Where-Object name -like "*$Asset*" }
-$pick = $pick | Where-Object name -match 'x64|x86_64|amd64|win' | Select-Object -First 1
-if (-not $pick) { $pick = $rel.assets | Select-Object -First 1 }
+$candidates = $rel.assets | Where-Object { $_.name -notmatch '\.(sha256|txt|sig|asc|yml|blockmap)$' }
+if ($Asset) { $candidates = $candidates | Where-Object name -like "*$Asset*" }
+# Keep Windows-installable formats only; drop macOS/Linux builds (dmg, AppImage, deb, tar.gz, ...)
+$win = $candidates | Where-Object { $_.name -match '\.(exe|msi|zip|7z|nupkg)$' -and $_.name -notmatch 'mac|darwin|osx|linux|arm64|aarch64' }
+$pick = $win | Where-Object name -match 'x64|x86_64|amd64|win' | Select-Object -First 1
+if (-not $pick) { $pick = $win | Where-Object name -match '\.(zip|7z)$' | Select-Object -First 1 }
+if (-not $pick) { $pick = $win | Select-Object -First 1 }
+if (-not $pick) { $pick = $candidates | Select-Object -First 1 }
 "asset: $($pick.name)"
 "url:   $($pick.url)"
 if ($NoDownload) { return }
