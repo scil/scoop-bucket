@@ -19,7 +19,9 @@
     "pre_uninstall": [
         "New-Item $persist_dir -ItemType Directory -Force | Out-Null",
         "'LLPlayer.Config.json', 'LLPlayer.PlayerConfig.json', 'LLPlayer.Engine.json' | ForEach-Object {",
+        "    # Mirror deletions too, so a config removed to reset LLPlayer isn't restored from a stale copy",
         "    if (Test-Path \"$dir\\$_\" -PathType Leaf) { Copy-Item \"$dir\\$_\" \"$persist_dir\\$_\" -Force }",
+        "    else { Remove-Item \"$persist_dir\\$_\" -Force -ErrorAction SilentlyContinue }",
         "}"
     ],
     "shortcuts": [
