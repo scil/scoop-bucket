@@ -9,6 +9,19 @@
             "hash": "21761979f4e335b7ec42fcf813707f68e18ea97b5baa6676061e4a5569297f6b"
         }
     },
+    "post_install": [
+        "# Config files are restored by copy instead of 'persist': LLPlayer uses built-in defaults only when a file is absent,",
+        "# so scoop's placeholder (a directory) or an empty seed file would break it",
+        "'LLPlayer.Config.json', 'LLPlayer.PlayerConfig.json', 'LLPlayer.Engine.json' | ForEach-Object {",
+        "    if (Test-Path \"$persist_dir\\$_\" -PathType Leaf) { Copy-Item \"$persist_dir\\$_\" \"$dir\\$_\" -Force }",
+        "}"
+    ],
+    "pre_uninstall": [
+        "New-Item $persist_dir -ItemType Directory -Force | Out-Null",
+        "'LLPlayer.Config.json', 'LLPlayer.PlayerConfig.json', 'LLPlayer.Engine.json' | ForEach-Object {",
+        "    if (Test-Path \"$dir\\$_\" -PathType Leaf) { Copy-Item \"$dir\\$_\" \"$persist_dir\\$_\" -Force }",
+        "}"
+    ],
     "shortcuts": [
         [
             "LLPlayer.exe",
@@ -27,6 +40,6 @@
     },
     "notes": [
         "LLPlayer requires .NET Desktop Runtime 10 (scoop install extras/windowsdesktop-runtime).",
-        "Settings are stored next to the executable (LLPlayer.Config.json, LLPlayer.PlayerConfig.json); back them up before updating."
+        "Settings files are copied to $persist_dir on update/uninstall and restored on install."
     ]
 }
