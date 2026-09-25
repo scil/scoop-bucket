@@ -24,5 +24,9 @@
                 "url": "https://github.com/tangshimin/MuJing/releases/download/v$version/MuJing-$version.zip"
             }
         }
-    }
+    },
+    "notes": [
+        "Settings and pronunciation cache live in %USERPROFILE%\\.MuJing and are kept across updates and uninstall.",
+        "To remove them, run '$dir\\RemoveConfig.exe --uninstall' before uninstalling, or delete that folder manually."
+    ]
 }
