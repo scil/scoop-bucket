@@ -1,0 +1,32 @@
+{
+    "version": "0.3.0",
+    "description": "Media player for language learning, with dual subtitles, AI-generated subtitles, real-time translation, and more",
+    "homepage": "https://github.com/umlx5h/LLPlayer",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/umlx5h/LLPlayer/releases/download/v0.3.0/LLPlayer-v0.3.0-x64.7z",
+            "hash": "21761979f4e335b7ec42fcf813707f68e18ea97b5baa6676061e4a5569297f6b"
+        }
+    },
+    "shortcuts": [
+        [
+            "LLPlayer.exe",
+            "LLPlayer"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/umlx5h/LLPlayer"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/umlx5h/LLPlayer/releases/download/v$version/LLPlayer-v$version-x64.7z"
+            }
+        }
+    },
+    "notes": [
+        "LLPlayer requires .NET Desktop Runtime 10 (scoop install extras/windowsdesktop-runtime).",
+        "Settings are stored next to the executable (LLPlayer.Config.json, LLPlayer.PlayerConfig.json); back them up before updating."
+    ]
+}
