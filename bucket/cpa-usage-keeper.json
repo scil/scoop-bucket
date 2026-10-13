@@ -1,5 +1,5 @@
 {
-    "version": "1.15.10",
+    "version": "1.15.11",
     "description": "Standalone CLIProxyAPI (CPA) usage tracker with SQLite persistence and built-in dashboard",
     "homepage": "https://github.com/Willxup/cpa-usage-keeper",
     "license": "MIT",
@@ -11,14 +11,14 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Willxup/cpa-usage-keeper/releases/download/v1.15.10/cpa-usage-keeper_v1.15.10_windows_amd64.zip",
-            "hash": "c1a48b618e820e46a42f3670b6a680f57d74162230d8cc03f51c56323ba3bc56",
-            "extract_dir": "cpa-usage-keeper_v1.15.10_windows_amd64"
+            "url": "https://github.com/Willxup/cpa-usage-keeper/releases/download/v1.15.11/cpa-usage-keeper_v1.15.11_windows_amd64.zip",
+            "hash": "f9a4fc05d18c2dfe010b165179258d4372aed3b76c818149eaf35a4885d73ebd",
+            "extract_dir": "cpa-usage-keeper_v1.15.11_windows_amd64"
         },
         "arm64": {
-            "url": "https://github.com/Willxup/cpa-usage-keeper/releases/download/v1.15.10/cpa-usage-keeper_v1.15.10_windows_arm64.zip",
-            "hash": "a062c92e8dbde4bde2a69d6c50ae6c2c1d6b04412adad0691900bdeadb8aa048",
-            "extract_dir": "cpa-usage-keeper_v1.15.10_windows_arm64"
+            "url": "https://github.com/Willxup/cpa-usage-keeper/releases/download/v1.15.11/cpa-usage-keeper_v1.15.11_windows_arm64.zip",
+            "hash": "67ea9186eb9b0e244559f3b0ee743120ec6d0d61066fecdbc7b4a082244784ab",
+            "extract_dir": "cpa-usage-keeper_v1.15.11_windows_arm64"
         }
     },
     "pre_install": [
